@@ -1,7 +1,7 @@
 # IndieGala-Gift-Bundle-Key-Exporter
 1-Click Key Export for your IndieGala Gifts
 
-#Installation
+# Installation
 
 If you have Tampermonkey installed in your browser already, you can just [click here](https://github.com/mdnpascual/IndieGala-Gift-Bundle-Key-Exporter/raw/master/IndieGala_Gift_Bundle_Key_Exporter.user.js) to install it.
 
