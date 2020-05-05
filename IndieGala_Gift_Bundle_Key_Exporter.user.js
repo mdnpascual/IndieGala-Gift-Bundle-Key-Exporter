@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Indie Gala Gift Bundle Key Exporter
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  1-Click Key Export for your IndieGala Gifts (Updated for Indiegala's website redesign on May 2020)
 // @author       MDuh
 // @match        https://www.indiegala.com/gift-bundle/*
@@ -40,7 +40,6 @@ function main(){
         var checkDOM = document.querySelectorAll("figcaption > div.profile-private-page-library-serial-dialog.display-none > div > button.right.profile-private-page-library-get-serial-btn.bg-gradient-blue");
 
         if (checkDOM.length === 0) {
-
             clearInterval(isItDoneYet);
             generateResult();
         }
@@ -55,11 +54,16 @@ function generateResult(){
     var gameList = document.evaluate("//li/div/figcaption/div[div[contains(@class, 'left')]]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
     for ( var i=0 ; i < gameList.snapshotLength; i++ )
     {
+        // APPEND GAME:KEY LIST
         keyResult +=
             gameList.snapshotItem(i).children[0].children[0].innerHTML  // GAME NAME
             + ":\t" +
             gameList.snapshotItem(i).children[1].children[0].children[0].children[0].value // SERIAL KEY
             + "\r\n";
+        // MODIFY HTML TO SET STEAM ICON AS A URL TO ACTIVATE THE KEY TO STEAM
+        gameList.snapshotItem(i).children[1].children[0].children[1].setAttribute("onClick", "javascript: window.open('https://store.steampowered.com/account/registerkey?key=" + gameList.snapshotItem(i).children[1].children[0].children[0].children[0].value + "')");
+        gameList.snapshotItem(i).children[1].children[0].children[1].setAttribute("class", "right profile-private-page-library-key-icon bg-gradient-blue");
+        gameList.snapshotItem(i).children[1].children[0].children[1].style = "cursor: pointer;"
     }
 
     textToClipboard(keyResult);
