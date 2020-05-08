@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Indie Gala Gift Bundle Key Exporter
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  1-Click Key Export for your IndieGala Gifts (Updated for Indiegala's website redesign on May 2020)
 // @author       MDuh
 // @match        https://www.indiegala.com/gift-bundle/*
+// @match        https://www.indiegala.com/gift?gift_id=*
 // @supportURL   https://github.com/mdnpascual/IndieGala-Gift-Bundle-Key-Exporter/issues
 // @updateURL    https://github.com/mdnpascual/IndieGala-Gift-Bundle-Key-Exporter/raw/master/IndieGala_Gift_Bundle_Key_Exporter.user.js
 // @downloadURL  https://github.com/mdnpascual/IndieGala-Gift-Bundle-Key-Exporter/raw/master/IndieGala_Gift_Bundle_Key_Exporter.user.js
